@@ -14,8 +14,8 @@ export const SlowComponent = () => {
 
 const SlowItem = ({ id }: { id: number }) => {
   const startTime = performance.now();
-  while (performance.now() - startTime < 5) {
-    // Do Nothing for 5ms per item to emulate extremely solw code
+  while (performance.now() - startTime < 10) {
+    // Do Nothing for 10ms per item to emulate extremely solw code
   }
 
   console.log(`Post #{${id} + 1}`);
