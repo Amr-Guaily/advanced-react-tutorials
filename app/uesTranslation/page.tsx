@@ -1,7 +1,7 @@
 import BadDesign from './_components/bad-design';
 import GoodDesign from './_components/good-design';
 
-export default function ChildrenAsPropsComposition() {
+export default function UseTranslation() {
   return (
     <div className="flex items-center gap-4 ">
       <div className="border-2 border-gray-400 bg-blue-200 w-1/2 p-2 text-2xl">
