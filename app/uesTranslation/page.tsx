@@ -1,19 +1,17 @@
 import BadDesign from './_components/bad-design';
-import GoodDesign from './_components/good-design';
 
 export default function UseTranslation() {
   return (
-    <div className="flex items-center gap-4 ">
-      <div className="border-2 border-gray-400 bg-blue-200 w-1/2 p-2 text-2xl">
+    <div className="flex flex-col gap-6 p-4">
+      <div>
         <h2 className="text-center underline font-semibold">Bad design</h2>
         <BadDesign />
       </div>
 
-      <div className="border-2 border-gray-400 bg-blue-200 w-1/2 p-2 text-2xl">
+      <div>
         <h2 className="text-center underline font-semibold">
           Performant design
         </h2>
-        <GoodDesign />
       </div>
     </div>
   );

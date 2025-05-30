@@ -47,3 +47,59 @@ a {
     color-scheme: dark;
   }
 }
+
+.container {
+  font-family: 'Arial';
+  display: flex;
+}
+
+.tabs {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 10rem;
+  padding: 2rem;
+  background: #e4e4e8;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 0 0 0 1rem;
+}
+
+.tab-button {
+  padding: 1rem 2rem;
+  margin: 0.25rem 0;
+  background: #979ebf;
+  color: #fff;
+  border: 1px solid #424a6b;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+}
+
+.tab-button.active {
+  background: #1b1e2c !important;
+}
+
+.issues {
+  background: #e3fcef;
+  min-height: 100%;
+  padding: 2rem;
+}
+
+.projects {
+  background: #77a6d2;
+  min-height: 100%;
+  padding: 2rem;
+}
+
+.reports {
+  background: #e79c9c;
+  min-height: 100%;
+  padding: 2rem;
+}
