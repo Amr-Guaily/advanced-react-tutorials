@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { TabButton } from './tab-button';
 import { Issues, Projects, Reports } from './screens';
+import { TabButton } from './tab-button';
 
 type Screens = 'issues' | 'projects' | 'reports';
 

@@ -1,4 +1,5 @@
 import BadDesign from './_components/bad-design';
+import GoodDesign from './_components/good-design';
 
 export default function UseTranslation() {
   return (
@@ -12,6 +13,7 @@ export default function UseTranslation() {
         <h2 className="text-center underline font-semibold">
           Performant design
         </h2>
+        <GoodDesign />
       </div>
     </div>
   );
