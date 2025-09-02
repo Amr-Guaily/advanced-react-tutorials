@@ -1,10 +1,10 @@
-import { useFormState } from '../../_context/form-providor';
+import { useFormData } from '../../_context/form-providor';
 
 export const DiscountSituation = () => {
-  const { state } = useFormState();
+  const { discount } = useFormData();
 
   console.info('Discount situation render');
-  const discountPercent = Math.round((state.discount / 300) * 100);
+  const discountPercent = Math.round((discount / 300) * 100);
 
   let discountSituation = '😊';
   if (discountPercent < 10) discountSituation = '😊';

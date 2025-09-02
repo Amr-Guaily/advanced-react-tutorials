@@ -1,8 +1,8 @@
-import { useFormState } from '../../_context/form-providor';
+import { useFormAPI } from '../../_context/form-providor';
 import { Section } from './section';
 
 export const ActionsSection = () => {
-  const { onSave } = useFormState();
+  const { onSave } = useFormAPI();
   console.info('ActionsSection render');
   return (
     <Section title="Actions">

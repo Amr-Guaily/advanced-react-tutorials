@@ -1,8 +1,9 @@
 import { ChangeEvent } from 'react';
-import { useFormState } from '../../_context/form-providor';
+import { useFormAPI, useFormData } from '../../_context/form-providor';
 
 export const NameFormComponent = () => {
-  const { onNameChange, state } = useFormState();
+  const { name } = useFormData();
+  const { onNameChange } = useFormAPI();
   console.info('NameFormComponent render');
 
   const onValueChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -12,7 +13,7 @@ export const NameFormComponent = () => {
   return (
     <div>
       Type your name here: <br />
-      <input onChange={onValueChange} value={state.name} />
+      <input onChange={onValueChange} value={name} />
     </div>
   );
 };
