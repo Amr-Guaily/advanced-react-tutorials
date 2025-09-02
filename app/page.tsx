@@ -24,6 +24,10 @@ export default function Home() {
           Prevent renderes composition:
           <br /> Children as Props
         </Link>
+
+        <Link href="/performant-react-with-context" className="tutorial-item">
+          Performant React with Context:
+        </Link>
       </div>
     </div>
   );
