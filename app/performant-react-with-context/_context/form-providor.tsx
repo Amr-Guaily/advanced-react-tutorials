@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 import { Country } from '../_select-country-library';
 
 interface State {
@@ -16,3 +16,37 @@ interface Context {
 }
 
 const FormContext = createContext<Context>({} as Context);
+
+export const FormDataProvider = ({ children }: { children: ReactNode }) => {
+  const [state, setState] = useState<State>({} as State);
+
+  const value = useMemo(() => {
+    const onSave = () => {
+      // send the request to the backend here
+    };
+
+    const onDiscountChange = (discount: number) => {
+      setState({ ...state, discount });
+    };
+
+    const onNameChange = (name: string) => {
+      setState({ ...state, name });
+    };
+
+    const onCountryChange = (country: Country) => {
+      setState({ ...state, country });
+    };
+
+    return {
+      state,
+      onSave,
+      onNameChange,
+      onDiscountChange,
+      onCountryChange,
+    };
+  }, [state]);
+
+  return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
+};
+
+export const useFormState = () => useContext(FormContext);
