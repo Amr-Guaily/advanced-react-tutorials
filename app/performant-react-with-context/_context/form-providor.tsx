@@ -36,15 +36,15 @@ export const FormDataProvider = ({ children }: { children: ReactNode }) => {
     };
 
     const onDiscountChange = (discount: number) => {
-      setState({ ...state, discount });
+      setState((prevState) => ({ ...prevState, discount }));
     };
 
     const onNameChange = (name: string) => {
-      setState({ ...state, name });
+      setState((prevState) => ({ ...prevState, name }));
     };
 
     const onCountryChange = (country: Country) => {
-      setState({ ...state, country });
+      setState((prevState) => ({ ...prevState, country }));
     };
 
     return {
@@ -53,7 +53,11 @@ export const FormDataProvider = ({ children }: { children: ReactNode }) => {
       onDiscountChange,
       onCountryChange,
     };
-  }, [state]);
+    /**
+      If you remove state from the useMemo dependencies, the API functions will only be created once and never update, even if state changes. What's wrong?
+        - The API functions will always use the initial state value (from the first render).
+     */
+  }, []);
 
   return (
     <FormAPIContext.Provider value={api}>

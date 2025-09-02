@@ -13,7 +13,7 @@ export const NameFormComponent = () => {
   return (
     <div>
       Type your name here: <br />
-      <input onChange={onValueChange} value={name} />
+      <input onChange={onValueChange} value={name ?? ''} />
     </div>
   );
 };
