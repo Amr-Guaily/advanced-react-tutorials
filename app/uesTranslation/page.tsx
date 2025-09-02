@@ -1,4 +1,5 @@
 import BadDesign from './_components/bad-design';
+import DarkSide from './_components/dark-side';
 import GoodDesign from './_components/good-design';
 
 export default function UseTranslation() {
@@ -14,6 +15,13 @@ export default function UseTranslation() {
           Performant design
         </h2>
         <GoodDesign />
+      </div>
+
+      <div>
+        <h2 className="text-center underline font-semibold">
+          Dark side of useTranslition
+        </h2>
+        <DarkSide />
       </div>
     </div>
   );

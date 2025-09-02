@@ -6,32 +6,34 @@ import { TabButton } from './tab-button';
 
 type Screens = 'issues' | 'projects' | 'reports';
 
-export default function GoodDesign() {
+export default function DarkSide() {
   const [tab, setTab] = useState<Screens>('issues');
 
   const [isPending, startTransition] = useTransition();
+
+  const onTabClick = (tab: Screens) => {
+    startTransition(() => {
+      setTab(tab);
+    });
+  };
 
   return (
     <div className="container">
       <div className="tabs">
         <TabButton
           isActive={tab === 'issues'}
-          onClick={() => setTab('issues')}
+          onClick={() => onTabClick('issues')}
           name="Issues"
         />
         <TabButton
           isActive={tab === 'projects'}
-          onClick={() => {
-            startTransition(() => {
-              setTab('projects');
-            });
-          }}
+          onClick={() => onTabClick('projects')}
           name="Projects"
           isLoading={isPending}
         />
         <TabButton
           isActive={tab === 'reports'}
-          onClick={() => setTab('reports')}
+          onClick={() => onTabClick('reports')}
           name="Reports"
         />
       </div>
