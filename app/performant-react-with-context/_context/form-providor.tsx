@@ -21,7 +21,13 @@ interface API {
 }
 
 // INFO: Split the state part and the API part
-const FormDataContext = createContext<State>({} as State);
+const FormNameContext = createContext<State['name']>({} as State['name']);
+const FormDiscountContext = createContext<State['discount']>(
+  {} as State['discount']
+);
+const FormCountryContext = createContext<State['country']>(
+  {} as State['country']
+);
 const FormAPIContext = createContext<API>({} as API);
 
 // INFO: unions allow a type to be one of serval types
@@ -80,12 +86,18 @@ export const FormDataProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <FormAPIContext.Provider value={api}>
-      <FormDataContext.Provider value={state}>
-        {children}
-      </FormDataContext.Provider>
+      <FormNameContext.Provider value={state.name}>
+        <FormCountryContext.Provider value={state.country}>
+          <FormDiscountContext.Provider value={state.discount}>
+            {children}
+          </FormDiscountContext.Provider>
+        </FormCountryContext.Provider>
+      </FormNameContext.Provider>
     </FormAPIContext.Provider>
   );
 };
 
-export const useFormData = () => useContext(FormDataContext);
+export const useFormName = () => useContext(FormNameContext);
+export const useFormCountry = () => useContext(FormCountryContext);
+export const useFormDiscount = () => useContext(FormDiscountContext);
 export const useFormAPI = () => useContext(FormAPIContext);

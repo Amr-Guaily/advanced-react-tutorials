@@ -1,8 +1,8 @@
 import { ChangeEvent } from 'react';
-import { useFormAPI, useFormData } from '../../_context/form-providor';
+import { useFormAPI, useFormName } from '../../_context/form-providor';
 
 export const NameFormComponent = () => {
-  const { name } = useFormData();
+  const name = useFormName();
   const { onNameChange } = useFormAPI();
   console.info('NameFormComponent render');
 
