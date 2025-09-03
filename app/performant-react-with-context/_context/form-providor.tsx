@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useMemo,
+  useReducer,
+} from 'react';
 import { Country } from '../_select-country-library';
 
 interface State {
@@ -18,8 +24,25 @@ interface API {
 const FormDataContext = createContext<State>({} as State);
 const FormAPIContext = createContext<API>({} as API);
 
+// INFO: unions allow a type to be one of serval types
+type Actions =
+  | { type: 'updateName'; name: string }
+  | { type: 'updateDiscount'; discount: number }
+  | { type: 'updateCountry'; country: Country };
+
+const reducer = (state: State, action: Actions) => {
+  switch (action.type) {
+    case 'updateName':
+      return { ...state, name: action.name };
+    case 'updateDiscount':
+      return { ...state, discount: action.discount };
+    case 'updateCountry':
+      return { ...state, country: action.country };
+  }
+};
+
 export const FormDataProvider = ({ children }: { children: ReactNode }) => {
-  const [state, setState] = useState<State>({} as State);
+  const [state, dispatch] = useReducer(reducer, {} as State);
 
   /*
     - INFO: If we just leave it as it was before, the "spliting idea" is not going to work because we still would have to rely on the state as a dependency in `useMemo`
@@ -36,15 +59,15 @@ export const FormDataProvider = ({ children }: { children: ReactNode }) => {
     };
 
     const onDiscountChange = (discount: number) => {
-      setState((prevState) => ({ ...prevState, discount }));
+      dispatch({ type: 'updateDiscount', discount });
     };
 
     const onNameChange = (name: string) => {
-      setState((prevState) => ({ ...prevState, name }));
+      dispatch({ type: 'updateName', name });
     };
 
     const onCountryChange = (country: Country) => {
-      setState((prevState) => ({ ...prevState, country }));
+      dispatch({ type: 'updateCountry', country });
     };
 
     return {
@@ -53,10 +76,6 @@ export const FormDataProvider = ({ children }: { children: ReactNode }) => {
       onDiscountChange,
       onCountryChange,
     };
-    /**
-      If you remove state from the useMemo dependencies, the API functions will only be created once and never update, even if state changes. What's wrong?
-        - The API functions will always use the initial state value (from the first render).
-     */
   }, []);
 
   return (
