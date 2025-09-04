@@ -1,13 +1,13 @@
-import React, { ChangeEvent } from "react";
+import { ChangeEvent } from 'react';
 
 export const NameFormComponent = ({
   onChange,
-  name
+  name,
 }: {
   onChange: (val: string) => void;
   name: string;
 }) => {
-  console.info("NameFormComponent render");
+  console.info('NameFormComponent render');
 
   const onValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
@@ -16,7 +16,7 @@ export const NameFormComponent = ({
   return (
     <div>
       Type your name here: <br />
-      <input onChange={onValueChange} value={name} />
+      <input onChange={onValueChange} value={name ?? ''} />
     </div>
   );
 };
