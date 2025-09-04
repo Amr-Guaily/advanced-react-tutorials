@@ -19,6 +19,12 @@ export default function Home() {
         >
           Good Design
         </Link>
+        <Link
+          href="/performant-react-with-context/good-design-redux"
+          className="tutorial-item"
+        >
+          Good Design With Redux
+        </Link>
       </div>
     </div>
   );
