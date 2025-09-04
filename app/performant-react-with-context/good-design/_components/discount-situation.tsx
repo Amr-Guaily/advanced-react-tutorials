@@ -1,4 +1,4 @@
-import { useFormDiscount } from '../../_context/form-providor';
+import { useFormDiscount } from '../_context/form-providor';
 
 export const DiscountSituation = () => {
   const discount = useFormDiscount();

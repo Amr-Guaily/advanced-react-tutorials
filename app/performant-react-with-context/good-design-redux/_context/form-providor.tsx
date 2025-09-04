@@ -5,7 +5,7 @@ import {
   useMemo,
   useReducer,
 } from 'react';
-import { Country } from '../_select-country-library';
+import { Country } from '../../_select-country-library';
 
 interface State {
   name: string;

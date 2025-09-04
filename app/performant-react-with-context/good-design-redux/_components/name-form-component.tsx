@@ -1,5 +1,8 @@
 import { ChangeEvent } from 'react';
-import { useFormAPI, useFormName } from '../../_context/form-providor';
+import {
+  useFormAPI,
+  useFormName,
+} from '../../good-design/_context/form-providor';
 
 export const NameFormComponent = () => {
   const name = useFormName();

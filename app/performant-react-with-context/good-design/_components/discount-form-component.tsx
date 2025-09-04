@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
-import { useFormAPI } from '../../_context/form-providor';
 import { DraggingBar } from '../../_dragging-bar-library';
+import { useFormAPI } from '../_context/form-providor';
 
 export const DiscountFormComponent = () => {
   const { onDiscountChange } = useFormAPI();
